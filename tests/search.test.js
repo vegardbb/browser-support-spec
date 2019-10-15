@@ -1,4 +1,4 @@
-const { find, getSupport } = require('../fake/fakeCanIUse');
+const { find } = require('../fake/fakeCanIUse');
 const search = require('../search');
 
 // case A
