@@ -1,4 +1,4 @@
-// const { getSupport } = require('caniuse-api');
+const { getSupport } = require('caniuse-api');
 
 /**
 const CurrentRetro = styled.div`
