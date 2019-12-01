@@ -2,15 +2,13 @@
   "name": "browser-support-spec",
   "version": "1.0.0",
   "description": "\"Javascript-based command line application which generates a list of browsers which supports the input web technologies, by searching the CanIUse API.\"",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
     "canuse": "caniuse",
     "test": "jest"
   },
   "bin": {
-    "browser-support-search": "./bin/browserSupportSearch.js",
-    "browser-support-list": "./bin/browserSupportList.js",
-    "browser-support-spec": "./bin/browserSupportSpec.js"
+    "browser-support-spec": "./bin/index.js"
   },
   "repository": {
     "type": "git",
