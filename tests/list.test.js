@@ -2,7 +2,7 @@ const { getSupport } = require('../fake/fakeCanIUse');
 const list = require('../list');
 
 // case B
-xit("gets the ID's of supported web browsers for the features: \"flexbox\"", () => {
+xit("gets the ID's and versions of supported web browsers for the features denoted in the string 'flexbox'", () => {
   /**
     * Expected output from list(getSupport)('flexbox'):
     * { and_chr: '75', and_ff: '67', and_qq: '1.2', and_uc: '12.12', android: '4.4', baidu: '7.12', chrome: '21', edge: 12'', firefox: '28', ie_mob: '11', ios_saf: '7.0', op_mini: 'all', op_mob: '12.1', opera: '12.1', safari: '6.1', samsung: '4' }
@@ -17,7 +17,7 @@ xit("gets the ID's of supported web browsers for the features: \"flexbox\"", () 
 });
 
 // case C
-xit("gets the ID's of supported web browsers for the features: \"border-radius flexbox\"", () => {
+xit("gets the ID's and versions of supported web browsers for the features denoted in the string 'border-radius flexbox'", () => {
   /**
     * Expected output from list(getSupport)('border-radius flexbox'):
     * { and_chr: '75', and_ff: '67', and_qq: '1.2', and_uc: '12.12', android: '4.4', baidu: '7.12', chrome: '21', edge: '12', firefox: '28', ie_mob: '11', ios_saf: '7.0', op_mob: '12.1', opera: '12.1', safari: '6.1', samsung: '4' }
@@ -32,7 +32,7 @@ xit("gets the ID's of supported web browsers for the features: \"border-radius f
 });
 
 // case E
-xit("gets the ID's of supported web browsers for the features: \"none\" (expects empty results)", () => {
+xit("gets the ID's and versions of supported web browsers for the features denoted in the string 'none'", () => {
   /**
     * Expected output from list(getSupport)('none'):
     * {}
@@ -47,4 +47,4 @@ xit("gets the ID's of supported web browsers for the features: \"none\" (expects
 });
 
 // case F
-xit("gets the ID's of supported web browsers for the features: \"none flexbox\" (expects precisely the same result as in case B)", () => { });
+xit("gets the ID's and versions of supported web browsers for the features denoted in the string 'none flexbox'", () => { });
