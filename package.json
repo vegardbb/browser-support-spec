@@ -7,6 +7,11 @@
     "canuse": "caniuse",
     "test": "jest"
   },
+  "bin": {
+    "browser-support-search": "./bin/browserSupportSearch.js",
+    "browser-support-list": "./bin/browserSupportList.js",
+    "browser-support-spec": "./bin/browserSupportSpec.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vegardbb/browser-support-spec.git"
