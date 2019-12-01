@@ -6,6 +6,11 @@ exports.find = function fakeFind(query) {
   return [];
 }
 
+// Legend:
+// y: Since which browser version the feature is available
+// n: Up to which browser version the feature is unavailable
+// a: Up to which browser version the feature is partially supported
+// x: Up to which browser version the feature is prefixed
 exports.getSupport = function fakeGetSupport(feature) {
   if (feature === 'border-radius') {
     return {
@@ -39,7 +44,7 @@ exports.getSupport = function fakeGetSupport(feature) {
       edge: { y: 12 },
       firefox: { a: 2, x: 2, y: 28 },
       ie: { n: 9, x: 10, a: 11 },
-      ie_mob: { y: 11, a: 10, y: 10 },
+      ie_mob: { y: 11, a: 10 },
       ios_saf: { a: 6.1, y: 7.0, x: 8 },
       op_mini: { y: "all" },
       op_mob: { n: 12, y: 12.1 },
@@ -50,26 +55,3 @@ exports.getSupport = function fakeGetSupport(feature) {
   }
   return Object.create(null);
 }
-
-/*
-Expected combination of features flexbox and border-radius, greater than:
-return {
-  and_chr: 75,
-  and_ff: 67,
-  and_qq: 1.2,
-  and_uc: 12.12,  
-  android: 4.4,
-  baidu: 7.12,
-  chrome: 21,
-  edge: 12,
-  firefox: 28,
-  ie: {},
-  ie_mob: 11,
-  ios_saf: 7.0,
-  op_mini: {},
-  op_mob: 12.1,
-  opera: 12.1,
-  safari: 6.1,
-  samsung: 4,
-};
-*/

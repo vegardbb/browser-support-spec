@@ -1,3 +1,4 @@
+/** @todo - Move the Map into the command line program */
 module.exports = new Map([
   ['and_chr', 'Chrome for Android'],
   ['and_ff', 'Firefox for Android'],
