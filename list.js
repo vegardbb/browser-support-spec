@@ -9,7 +9,11 @@ const convertMap = versionMap => Object.entries(versionMap).reduce(
   {},
 );
 
-const getList = supportAPI => query => supportAPI(query);
+const getList = supportAPI => query => query.split(' ')
+  .map(feature => supportAPI(feature))
+  .filter(versionMap => Object.keys(versionMap.length === 0))
+  .map(convertMap)
+  .pop()
 
 /**
  * @module list
