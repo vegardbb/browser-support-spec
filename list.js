@@ -1,4 +1,4 @@
-// const { getSupport } = require('caniuse-api');
+const { getSupport } = require('caniuse-api');
 
 const convertMap = versionMap => Object.entries(versionMap).reduce(
   (aggregate, [key, value]) => {
@@ -9,10 +9,12 @@ const convertMap = versionMap => Object.entries(versionMap).reduce(
   {},
 );
 
+const getList = supportAPI => query => supportAPI(query);
+
 /**
  * @module list
  * DI-enabled function which searches a browser support api for all versions of browser which definitely supports a set of input (case sensitive) web technologies.
  *
  */
-module.exports = () => Object.create(null);
-exports.listCanIUse = () => Object.create(null);
+module.exports = getList;
+exports.listCanIUse = getList(getSupport);
