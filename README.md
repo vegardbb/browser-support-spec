@@ -1,8 +1,6 @@
 # browser-support-spec
 NodeJS-based command line application which generates a list of browsers which supports the input web technologies, by searching the CanIUse API.
 
-`browser-support-spec` is a command-line tool running in the NodeJS runtime environment for creating a browserlist support file based on a set of web technologies
-
 ## ToDo
 1) Complete manual page
 1) Implement command line utility
@@ -32,6 +30,7 @@ This package delivers a command line program with two primary features:
 | --- | --- | --- | --- |
 | `--version` |-v| 0 | Outputs the current version of the project |
 | `--help` |-h| 0 | Ostensibly describes the different the commands the program will respond to |
+| `--browserscope` |-b| 0 | Print out the name of all of the web browsers browser-support-spec checks support against |
 
 ### Find web features represented in the CanIUse API
 
