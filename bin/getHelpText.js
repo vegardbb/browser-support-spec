@@ -34,26 +34,33 @@ AUTHORS
 browser-support-spec 1.0.0    18 December 2019    browser-support-spec(1)
 `;
 
+/** @fixme Define function countLeadingSpaces to get the padding number for a tail */
+
+/** @todo Padding: If the the string starts with a padding of spaces, all divisions of it wil have the same space padding. Assume the 'head' chunk is already padded */
+/** @fixme Make divideLine a linear recursive chunk processing function. Needs mmore correct code, plz */
 /** @returns An array with one or two elements */
 function divideLine(str, last) {
-  // const padNewLine = newLine => `${newLine}`;
-  if (str.length < last) return [str];
-  const dividerIndex = last;
-  const partOne = str.substring(0, last); 
-  if (str.charAt(last) === ' ') return [partOne, str.substring(dividerIndex, str.length)];
-  // find the last index with space before 79/columns
-  const index = partOne.lastIndexOf(' ');
-  return [str.substring(0, index), str.substring(index, str.length)];
+  // const padNewLine = newLine => `  ${newLine}`;
+  /** Recursion base case */
+  if (str.length <= last) {
+    return [str];
+  }
+  /** Determine how to split the string into a head (processed output) and a tail (recursion) */
+  // If character at the 'last' index of the string is a space or the character at the following index is a space,
+  // then divide the string at that index. Else find the last index before 'last' which holds a space, and divide there
+  let head = str.substring(0, last);
+  let tail = str.substring(last + 1);
+  if (str.charAt(last) === ' ') {
+    return [head].concat(divideLine(tail, last));
+  }
+  const dividerIndex = head.lastIndexOf(' ');
+  head = str.substring(0, dividerIndex);
+  tail = str.substring(dividerIndex + 1);
+  return [head].concat(divideLine(tail, last));
 }
 
 module.exports = function printText(columns) {
-  const maxWidth = Number.isInteger(columns) && columns > 80 ? columns : 80;
-  /** @todo Integrate divideCOmment into this function */
-  // const getNewLines = str => 5;
-  let lines = realHelpText.split('\n');
-  while (lines.some(line => line.length >= maxWidth)) {
-    // lines = lines.flatmap(getNewLines);
-    lines = lines.reduce((list, str) => list.concat(divideLine(str, maxWidth)), []);
-  }
-  return lines.join('\n');
+  const maxWidth = (Number.isInteger(columns) && columns > 80) ? columns : 80;
+  const textRecursively = (list, str) => list.concat(divideLine(str, maxWidth));
+  return realHelpText.split('\n').reduce(textRecursively, []).join('\n');
 };
