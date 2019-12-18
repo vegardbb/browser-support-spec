@@ -1,6 +1,10 @@
 #!/usr/bin/env node
-
+const getHelpText = require('./getHelpText');
 const cliArguments = process.argv.slice(2);
+
+/**
+ * @todo Define options for each of the commands browserscope, search, list and print-spec
+ */
 
 const optionsMap = [
   { short: '-v', long: '--version', description: 'Output the version number of Browser Support Spec' },
@@ -37,6 +41,10 @@ console.log(action);
 console.log(read);
 console.log(verbArgs);
 
+if (action === '-h' || action === '--help') {
+  console.log(getHelpText(process.stdout.columns));
+}
+
 // Printing help text //
 
 // Padding: 2*space + 2*shorthand + komma + space + 2*- + x*kommando + y*descriptionpadding(min 2)
@@ -54,8 +62,8 @@ function getOptionDescriptionPadding(option, requiredLength) {
 const optionStringLength = optionsMap.map(obj => getOptionCommand(obj).length).sort().pop();
 
 /** @returns An array with two elements */
-function divideComment(str) {
-  const columns = Number.isInteger(process.stdout.columns) ? process.stdout.columns - 1 : 79;
+function divideComment(str, columns) {
+  // const columns = Number.isInteger(process.stdout.columns) ? process.stdout.columns - 1 : 79;
   // if (str.length < columns + 1) return str;
   const partOne = str.substring(0, columns);
   if (str.charAt(columns) === ' ') return [partOne, str.substring(columns, str.length)];
@@ -63,20 +71,3 @@ function divideComment(str) {
   const i = partOne.lastIndexOf(' ');
   return [str.substring(0, i), str.substring(i, str.length)];
 }
-
-// ToDo: Define module which returns the helpText based on three parameters: header, infoText, and optionsMap
-// process.stdout.write(helpText);
-
-/*
-`Usage: browser-support-spec [option]
-
-Browser Support Spec is a command-line tool running in the NodeJS runtime environment for creating a browserlist support file based on a set of web technologies.
-
-Options:
-  -v, --version                Output the version number of Browser Support Spec
-  -h, --help                   Output this usage information. If no option is selected, this help text will be shown by default
-  -b, --browserscope           Print out the name of all of the browsers the tool checks support against (hint: It is the default CanIUse API scope)
-  -s, --search <keyword>       List all web technologies whose name matches with the argument "keyword"
-  -l, --list [features]        Print out the name and the oldest stable version of the web browsers in the set browserscope which support all of the web features/APIs present in the argument "features"
-  -p, --print-spec [features]  Print a .browserlistrc file containing all browsers in the browserscope which support all of the web features/APIs present in the argument "features"`
-*/
