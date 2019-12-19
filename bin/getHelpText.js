@@ -10,7 +10,7 @@ SYNOPSIS
 DESCRIPTION
   Browser Support Spec is a command-line tool, which runs in the NodeJS runtime environment. As such installing node10 or newer is required for this software to run. It runs queries on the CanIUseAPI to generate browser support lists containing the names of all the web browsers which supports all of the required web features specified in the query.
 
-  Unless the help command is given, one of the commands below must be present.
+  browser-support-spec accepts the following commands:
 
   scope
     scope is used to print out the name of all of the browsers the tool checks support against. The browser scope is the default one for CanIUse programs.
@@ -34,13 +34,13 @@ AUTHORS
 browser-support-spec 1.0.0    18 December 2019    browser-support-spec(1)
 `;
 
-/** @fixme Define function countLeadingSpaces to get the padding number for a tail */
+const padStringWithSpaces = (word, padsLeft = 0) => ((padsLeft > 0) ? ` ${padStringWithSpaces(word, padsLeft - 1)}` : word);
+const getSpacePadding = word => word.length - word.trimStart().length;
 
 /** @todo Padding: If the the string starts with a padding of spaces, all divisions of it wil have the same space padding. Assume the 'head' chunk is already padded */
 /** @fixme Make divideLine a linear recursive chunk processing function. Needs mmore correct code, plz */
 /** @returns An array with one or two elements */
 function divideLine(str, last) {
-  // const padNewLine = newLine => `  ${newLine}`;
   /** Recursion base case */
   if (str.length <= last) {
     return [str];
@@ -49,14 +49,14 @@ function divideLine(str, last) {
   // If character at the 'last' index of the string is a space or the character at the following index is a space,
   // then divide the string at that index. Else find the last index before 'last' which holds a space, and divide there
   let head = str.substring(0, last);
-  let tail = str.substring(last + 1);
+  let tail = str.substring(last);
   if (str.charAt(last) === ' ') {
-    return [head].concat(divideLine(tail, last));
+    return [head].concat(divideLine(padStringWithSpaces(tail.trimStart(), getSpacePadding(head)), last));
   }
   const dividerIndex = head.lastIndexOf(' ');
   head = str.substring(0, dividerIndex);
-  tail = str.substring(dividerIndex + 1);
-  return [head].concat(divideLine(tail, last));
+  tail = str.substring(dividerIndex);
+  return [head].concat(divideLine(padStringWithSpaces(tail.trimStart(), getSpacePadding(head)), last));
 }
 
 module.exports = function printText(columns) {
