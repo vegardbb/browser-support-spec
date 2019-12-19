@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 const getHelpText = require('./getHelpText');
+const { version } = require('../package.json');
 
-// example: ['search', 'fetch']
+// Example: ['search', 'fetch']
 const cliArguments = process.argv.slice(2);
 
 // action := scope, search (1), list (n), print (n), version, help
@@ -20,4 +21,6 @@ console.log(verbArgs);
 
 if (action === 'help') {
   console.log(getHelpText(process.stdout.columns));
+} else if (action === 'version') {
+  console.log(`v${version}`);
 }
