@@ -7,7 +7,7 @@ it("gets the IDs and versions of supported web browsers for the features denoted
     * Expected output from list(getSupport)('flexbox'):
     * { and_chr: 75, and_ff: 67, and_qq: 1.2, and_uc: 12.12, android: 4.4, baidu: 7.12, chrome: 21, edge: 12, firefox: 28, ie_mob: 11, ios_saf: 7.0, op_mob: 12.1, opera: 12.1, safari: 6.1, samsung: 4 }
     */
-  const supported = list(getSupport)('flexbox');
+  const supported = list(getSupport)(['flexbox']);
   const browserKeys = Object.keys(supported);
   expect(browserKeys).toHaveLength(15);
   expect(browserKeys).toEqual(expect.arrayContaining(['and_chr', 'and_ff', 'and_qq', 'and_uc', 'android', 'baidu', 'chrome', 'edge', 'firefox', 'ie_mob', 'ios_saf', 'op_mob', 'opera', 'safari', 'samsung']));
@@ -22,7 +22,7 @@ it("gets the IDs and versions of supported web browsers for the features denoted
     * Expected output from list(getSupport)('border-radius flexbox'):
     * { and_chr: 75, and_ff: 67, and_qq: 1.2, and_uc: 12.12, android: 4.4, baidu: 7.12, chrome: 21, edge: 12, firefox: 28, ie_mob: 11, ios_saf: 7, op_mob: 12.1, opera: 12.1, safari: 6.1, samsung: 4 }
     */
-  const supported = list(getSupport)('border-radius flexbox');
+  const supported = list(getSupport)('border-radius flexbox'.split(' '));
   const browserKeys = Object.keys(supported);
   expect(browserKeys).toHaveLength(15);
   expect(browserKeys).toEqual(expect.arrayContaining(['and_chr', 'and_ff', 'and_qq', 'and_uc', 'android', 'baidu', 'chrome', 'edge', 'firefox', 'ie_mob', 'ios_saf', 'op_mob', 'opera', 'safari', 'samsung']));
@@ -37,7 +37,7 @@ it("gets the IDs and versions of supported web browsers for the features denoted
     * Expected output from list(getSupport)('none'):
     * {}
     */
-  const supported = list(getSupport)('none');
+  const supported = list(getSupport)(['none']);
   const browserKeys = Object.keys(supported);
   expect(browserKeys).toHaveLength(0);
   expect(browserKeys).toEqual(expect.arrayContaining([]));
@@ -52,7 +52,7 @@ it("gets the IDs and versions of supported web browsers for the features denoted
     * Expected output from list(getSupport)('none flexbox'):
     * Same output as in B
     */
-  const supported = list(getSupport)('none flexbox');
+  const supported = list(getSupport)('none flexbox'.split(' '));
   const browserKeys = Object.keys(supported);
   expect(browserKeys).toHaveLength(15);
   expect(browserKeys).toEqual(expect.arrayContaining(['and_chr', 'and_ff', 'and_qq', 'and_uc', 'android', 'baidu', 'chrome', 'edge', 'firefox', 'ie_mob', 'ios_saf', 'op_mob', 'opera', 'safari', 'samsung']));

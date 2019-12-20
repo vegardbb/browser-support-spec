@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { find, getBrowserScope, getSupport } = require('caniuse-api');
 
+const browserNames = require('./shortNamesMap');
 const list = require('../list');
 const search = require('../search');
 const getHelpText = require('./getHelpText');
@@ -9,6 +10,7 @@ const scope = require('./getBrowserScope');
 const { version } = require('../package.json');
 
 const printSearchResult = q => [].concat(search(find)(q)).reduce((text, name) => `${text}${name}${'\n'}`, '').trimEnd();
+const printListResult = q => Object.entries(list(getSupport)(q)).reduce((text, [id, num]) => `${text}${browserNames.get(id)}: ${num}${'\n'}`, '').trimEnd();
 
 // Example: ['search', 'fetch']
 const cliArguments = process.argv.slice(2);
@@ -32,5 +34,5 @@ if (action === 'scope') {
 } else if (action === 'search') {
   console.log(printSearchResult(verbArgs));
 } else if (action === 'list') {
-  console.log('list', verbArgs);
+  console.log(printListResult(verbArgs));
 }

@@ -24,7 +24,7 @@ function browserVersions(accumulatedSupportMap, featureMap, i, featureArray) {
  * A function which searches a browser support api for all versions of browser which definitely supports
  * a set of input (case sensitive) web technologies.
  */
-module.exports = supportAPI => query => query.split(' ')
+module.exports = supportAPI => features => features
   .map(feature => supportAPI(feature))
   .filter(versionMap => Object.keys(versionMap).length > 0)
   .map(convertMap)
