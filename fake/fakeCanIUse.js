@@ -1,5 +1,5 @@
-// caniuse.find('inline-flex') // yields ['flexbox']
-// caniuse.find('radius') // yields ['border-radius']
+// caniuse.find('inline-flex') yields ['flexbox']
+// caniuse.find('radius') yields ['border-radius']
 exports.find = function fakeFind(query) {
   if (query === 'inline-flex' || query === 'flexbox') return ['flexbox'];
   if (query === 'radius' || query === 'border-radius') return ['border-radius'];

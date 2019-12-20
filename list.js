@@ -1,5 +1,3 @@
-// const { getSupport } = require('caniuse-api');
-
 const convertMap = versionMap => Object.entries(versionMap).reduce((aggregate, [key, value]) => (value != null && typeof value === 'object' && Number.isFinite(value.y)) ? Object.assign({}, aggregate, { [key]: value.y }) : aggregate, {});
 
 /**
