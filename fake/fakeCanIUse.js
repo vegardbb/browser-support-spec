@@ -4,7 +4,7 @@ exports.find = function fakeFind(query) {
   if (query === 'inline-flex' || query === 'flexbox') return ['flexbox'];
   if (query === 'radius' || query === 'border-radius') return ['border-radius'];
   return [];
-}
+};
 
 // Legend:
 // y: Since which browser version the feature is available
@@ -54,4 +54,23 @@ exports.getSupport = function fakeGetSupport(feature) {
     };
   }
   return Object.create(null);
-}
+};
+
+exports.getBrowserScope = () => [
+  'and_chr',
+  'and_ff',
+  'and_qq',
+  'and_uc',
+  'android',
+  'baidu',
+  'chrome',
+  'edge',
+  'firefox',
+  'ie',
+  'ios_saf',
+  'op_mob',
+  'opera',
+  'safari',
+  'samsung'
+];
+
