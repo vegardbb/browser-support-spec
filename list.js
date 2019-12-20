@@ -1,4 +1,4 @@
-const { getSupport } = require('caniuse-api');
+// const { getSupport } = require('caniuse-api');
 
 const convertMap = versionMap => Object.entries(versionMap).reduce((aggregate, [key, value]) => (value != null && typeof value === 'object' && Number.isFinite(value.y)) ? Object.assign({}, aggregate, { [key]: value.y }) : aggregate, {});
 
@@ -21,16 +21,13 @@ function browserVersions(accumulatedSupportMap, featureMap, i, featureArray) {
   return accumulatedSupportMap;
 }
 
-const getList = supportAPI => query => query.split(' ')
+/**
+ * @module list
+ * A function which searches a browser support api for all versions of browser which definitely supports
+ * a set of input (case sensitive) web technologies.
+ */
+module.exports = supportAPI => query => query.split(' ')
   .map(feature => supportAPI(feature))
   .filter(versionMap => Object.keys(versionMap).length > 0)
   .map(convertMap)
   .reduce(browserVersions, Object.create(null));
-
-/**
- * @module list
- * DI-enabled function which searches a browser support api for all versions of browser which definitely supports a set of input (case sensitive) web technologies.
- *
- */
-module.exports = getList;
-exports.listCanIUse = getList(getSupport);

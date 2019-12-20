@@ -1,7 +1,9 @@
 #!/usr/bin/env node
-const getBrowserScope = require('./getBrowserScope');
+const { getBrowserScope } = require('caniuse-api');
+
 const getHelpText = require('./getHelpText');
 const lines = require('./helpText');
+const scope = require('./getBrowserScope');
 const { version } = require('../package.json');
 
 // Example: ['search', 'fetch']
@@ -18,7 +20,7 @@ if (action === 'search') {
 }
 
 if (action === 'scope') {
-  console.log(getBrowserScope());
+  console.log(scope(getBrowserScope)());
 } else if (action === 'version') {
   console.log(`v${version}`);
 } else if (action === 'help') {
