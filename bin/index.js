@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const getBrowserScope = require('./getBrowserScope');
 const getHelpText = require('./getHelpText');
 const lines = require('./helpText');
 const { version } = require('../package.json');
@@ -6,7 +7,7 @@ const { version } = require('../package.json');
 // Example: ['search', 'fetch']
 const cliArguments = process.argv.slice(2);
 
-// action := scope, search (1), list (n), print (n), version, help
+// action := scope, search, list, print, version, help
 const action = cliArguments[0];
 
 let verbArgs = null;
@@ -16,12 +17,10 @@ if (action === 'search') {
   verbArgs = cliArguments.slice(1);
 }
 
-console.log(cliArguments);
-console.log(action);
-console.log(verbArgs);
-
-if (action === 'help') {
-  console.log(getHelpText(lines, process.stdout.columns));
+if (action === 'scope') {
+  console.log(getBrowserScope());
 } else if (action === 'version') {
   console.log(`v${version}`);
+} else if (action === 'help') {
+  console.log(getHelpText(lines, process.stdout.columns));
 }
