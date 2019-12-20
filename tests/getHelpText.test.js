@@ -1,4 +1,5 @@
 const getHelpText = require('../bin/getHelpText');
+const lines = require('../bin/helpText');
 
 // Expected output for arg=100
 const expectedHelpText = `
@@ -22,7 +23,7 @@ DESCRIPTION
 
   scope
     scope is used to print out the name of all of the browsers the tool checks support against. The
-    browser scope is the default one for CanIUse programs.
+    browser scope is the default one for the CanIUse API.
   search
     search is used to list all web technologies whose name matches with the argument "keyword". This
     command is useful for getting to know the different identifiers present in the CanIUse database.
@@ -53,7 +54,7 @@ browser-support-spec 1.0.0    18 December 2019    browser-support-spec(1)
 
 // case G
 it("breaks lines in the help text that are over 100 characters long", () => {
-  const resultString = getHelpText(100);
+  const resultString = getHelpText(lines, 100);
   expect(resultString.split('\n').every(line => line.length <= 100)).toEqual(true);
   expect(resultString).toEqual(expectedHelpText);
 });

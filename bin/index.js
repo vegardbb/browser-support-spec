@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const getHelpText = require('./getHelpText');
+const lines = require('./helpText');
 const { version } = require('../package.json');
 
 // Example: ['search', 'fetch']
@@ -20,7 +21,7 @@ console.log(action);
 console.log(verbArgs);
 
 if (action === 'help') {
-  console.log(getHelpText(process.stdout.columns));
+  console.log(getHelpText(lines, process.stdout.columns));
 } else if (action === 'version') {
   console.log(`v${version}`);
 }
