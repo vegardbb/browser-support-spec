@@ -1,12 +1,6 @@
 # browser-support-spec
 NodeJS-based command line application which generates a list of browsers which supports the input web technologies, by searching the CanIUse API.
 
-## ToDo
-1) .npmignore
-1) Release on NPM
-1) Install linting
-1) New feature: Implement web feature detection in source code
-
 ## Setup
 
 Install **browser-support-spec** globally in NPM:

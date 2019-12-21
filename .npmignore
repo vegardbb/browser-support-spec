@@ -5,6 +5,7 @@ tests/
 # Root level files
 browser-support-spec.code-workspace
 README.md
+TODO.md
 .gitignore
 
 # Logs
