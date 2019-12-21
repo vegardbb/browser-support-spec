@@ -3,18 +3,16 @@ const lines = require('../bin/helpText');
 
 // Expected output for arg=100
 const expectedHelpText = `
-BROWSER-SUPPORT-SPEC
+browser-support-spec
 
-NAME
-  browser-support-spec - A command line utlity for creating a browserlist support file based on a
-  set of web technologies.
+A command line utlity for creating a browserlist support file based on a set of web technologies.
 
-SYNOPSIS
+Synopsis
   browser-support-spec {scope | search keyword | list feature... | print feature...  | version |
   help}
 
-DESCRIPTION
-  Browser Support Spec is a command-line tool, which runs in the NodeJS runtime environment. You are
+Description
+  browser-support-spec is a command-line tool, which runs in the NodeJS runtime environment. You are
   therefore required to have v10 (or later) of NodeJS installed for this software to run. It runs
   queries on the CanIUseAPI to generate browser support lists containing the names of all the web
   browsers which supports all of the required web features specified in the query.
@@ -39,13 +37,13 @@ DESCRIPTION
   version
     Display the program version.
   help
-    Display this help text
+    Display this help text.
 
-BUGS
+Bugs
   Anomalies for this software may be reported on the URI
   https://github.com/vegardbb/browser-support-spec/issues.
 
-AUTHORS
+Author
   Vegard Bjerkli Bugge (vegardbb)
 
 browser-support-spec 1.0.0, built on 21 December 2019
