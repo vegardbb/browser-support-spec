@@ -2,6 +2,9 @@
   "name": "browser-support-spec",
   "version": "1.0.0",
   "description": "\"Javascript-based command line application which generates a list of browsers which supports the input web technologies, by searching the CanIUse API.\"",
+  "engines": {
+    "node": ">=10.15.0"
+  },
   "main": "bin/index.js",
   "scripts": {
     "test": "jest"
@@ -15,6 +18,23 @@
   },
   "author": "\"Vegard Bjerkli Bugge\"",
   "license": "MIT",
+  "keywords": [
+    "caniuse",
+    "browserlist",
+    "generate",
+    "query",
+    "API",
+    "web",
+    "technology",
+    "features",
+    "browser",
+    "support",
+    "specification",
+    "spec",
+    "html",
+    "css",
+    "javascript"
+  ],
   "bugs": {
     "url": "https://github.com/vegardbb/browser-support-spec/issues"
   },
