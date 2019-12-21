@@ -4,7 +4,6 @@
   "description": "\"Javascript-based command line application which generates a list of browsers which supports the input web technologies, by searching the CanIUse API.\"",
   "main": "bin/index.js",
   "scripts": {
-    "canuse": "caniuse",
     "test": "jest"
   },
   "bin": {
@@ -21,8 +20,7 @@
   },
   "homepage": "https://github.com/vegardbb/browser-support-spec#readme",
   "dependencies": {
-    "caniuse-api": "^3.0.0",
-    "caniuse-cli": "^1.0.30000979"
+    "caniuse-api": "^3.0.0"
   },
   "devDependencies": {
     "jest": "^24.9.0"
