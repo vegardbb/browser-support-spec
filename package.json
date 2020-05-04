@@ -7,7 +7,9 @@
   },
   "main": "bin/index.js",
   "scripts": {
-    "test": "jest"
+    "version": "node -e \"console.log(require('./getVersion.js')())\"",
+    "report-coverage": "nyc ava",
+    "test": "ava"
   },
   "bin": {
     "browser-support-spec": "./bin/index.js"
@@ -43,6 +45,7 @@
     "caniuse-api": "^3.0.0"
   },
   "devDependencies": {
-    "jest": "^24.9.0"
+    "ava": "^3.8.1",
+    "nyc": "^15.0.1"
   }
 }
