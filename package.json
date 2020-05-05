@@ -1,6 +1,6 @@
 {
   "name": "browser-support-spec",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "\"Javascript-based command line application which generates a list of browsers which supports the input web technologies, by searching the CanIUse API.\"",
   "engines": {
     "node": ">=10.15.0"
