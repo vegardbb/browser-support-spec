@@ -7,7 +7,7 @@ Install **browser-support-spec** globally in NPM:
 ```bash
 npm i browser-support-spec -g
 ```
-Upon whence you may print want to out the package version in the console:
+Upon whence you may want to print out the package version in the console:
 ```bash
 browser-support-spec version
 ```
@@ -18,11 +18,11 @@ npm uninstall -g browser-support-spec
 
 ## Functionality
 
-This package delivers a command line program with two primary features:
+```bash
+browser-support-spec {scope | search keyword | list feature... | print feature...  | version | help}
+```
 
 ### Standard utility commands
-
-  browser-support-spec {scope | search keyword | list feature... | print feature...  | version | help}
 
 | Command| #Args | Description |
 | --- | --- | --- |
