@@ -1,3 +1,4 @@
+const v = require('../getVersion')
 module.exports = `
 browser-support-spec
 
@@ -30,5 +31,5 @@ Bugs
 Author
   Vegard Bjerkli Bugge (vegardbb)
 
-browser-support-spec 1.0.0, built on 21 December 2019
+browser-support-spec ${v()}, built on 5 May 2020
 `;
