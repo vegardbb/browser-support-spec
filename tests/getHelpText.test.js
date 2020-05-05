@@ -1,3 +1,4 @@
+const test = require('ava');
 const getHelpText = require('../bin/getHelpText');
 const lines = require('../bin/helpText');
 
@@ -46,12 +47,12 @@ Bugs
 Author
   Vegard Bjerkli Bugge (vegardbb)
 
-browser-support-spec 1.0.0, built on 21 December 2019
+browser-support-spec 1.0.2, built on 5 May 2020
 `;
 
 // case G
-it("breaks lines in the help text that are over 100 characters long", () => {
+test("breaks lines in the help text that are over 100 characters long", (t) => {
   const resultString = getHelpText(lines, 100);
-  expect(resultString.split('\n').every(line => line.length <= 100)).toEqual(true);
-  expect(resultString).toEqual(expectedHelpText);
+  t.true(resultString.split('\n').every(line => line.length <= 100));
+  t.is(resultString, expectedHelpText);
 });

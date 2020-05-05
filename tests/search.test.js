@@ -1,17 +1,19 @@
+const test = require('ava');
 const { find } = require('../fake/fakeCanIUse');
 const search = require('../search');
 
 // case A
-it("searches for features containing the keyword 'radius'", () => {
+test("searches for features containing the keyword 'radius'", (t) => {
   // expects this result: ['border-radius']
   const searchResult = search(find)('radius');
-  expect(searchResult).toEqual(expect.arrayContaining(['border-radius']));
+  t.is(JSON.stringify(searchResult), JSON.stringify(['border-radius']));
+  t.is(searchResult.length, 1);
 });
 
 // case D
-it("searches for features containing the keyword 'none'", () => {
+test("searches for features containing the keyword 'none'", (t) => {
   // The result shall be empty
   const searchResult = search(find)('none');
-  expect(searchResult).not.toEqual(expect.arrayContaining(['border-radius']));
-  expect(searchResult).toHaveLength(0);
+  t.is(JSON.stringify(searchResult), JSON.stringify([]));
+  t.is(searchResult.length, 0);
 });

@@ -1,3 +1,4 @@
+const test = require('ava');
 const { getBrowserScope } = require('../fake/fakeCanIUse');
 const scope = require('../bin/getBrowserScope');
 
@@ -18,7 +19,7 @@ Safari
 Samsung web browser`;
 
 // case H
-it("gets the browser scope and converts it to a newline-separated string", () => {
+test("gets the browser scope and converts it to a newline-separated string", (t) => {
   const result = scope(getBrowserScope)();
-  expect(result).toEqual(solution);
+  t.is(result, solution);
 });
