@@ -45,7 +45,7 @@
     "caniuse-api": "^3.0.0"
   },
   "devDependencies": {
-    "ava": "^3.8.1",
+    "ava": "^5.2.0",
     "nyc": "^15.0.1"
   }
 }
